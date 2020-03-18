@@ -1,6 +1,7 @@
 package main
 
 import (
+    "os"
 	"fmt"
 	"net/http"
 	"html/template"
@@ -9,13 +10,14 @@ import (
 type M map[string]interface{}
 
 func main() {
+    port := os.Getenv("PORT")
     http.Handle("/static/", 
     	http.StripPrefix("/static/", http.FileServer(http.Dir("assets"))))
 
     // http.HandleFunc("/", home)
     http.HandleFunc("/index", home)
-    fmt.Println("server started at localhost:8080")
-    http.ListenAndServe(":8080", nil)
+    fmt.Println("server started at localhost:"+port)
+    http.ListenAndServe(":"+port, nil)
 }
 
 func home(w http.ResponseWriter, r *http.Request){
