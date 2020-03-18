@@ -33,7 +33,7 @@ func home(w http.ResponseWriter, r *http.Request){
         "views/_header.html",
         "views/_footer.html",
     ))
-	var data = M{"about": "Saya Leonardus Fernando Purba, umur masih muda XD, pernah kuliah (lulus walaupun telat), seorang web developer yang berkerja di salah satu perusahaan IT di Pontianak, bahasa pemrograman yang sering digunakan yaitu PHP, JavaScript, Go, dan MySql. Website ini adalah salah satu yang dikembangkan dengan Go."}
+	var data = M{"about": "Saya Leonardus Fernando Purba, umur masih muda XD, pernah kuliah (lulus walaupun telat), seorang web developer, bahasa pemrograman yang sering digunakan yaitu PHP, JavaScript, Go, dan MySql. Website ini adalah salah satu yang dikembangkan dengan Go."}
     err := tmpl.ExecuteTemplate(w, "index", data)
     if err != nil {
         http.Error(w, err.Error(), http.StatusInternalServerError)
